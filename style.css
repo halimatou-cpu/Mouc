@@ -1,0 +1,24 @@
+.center {
+    text-align: center
+}
+
+.center table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left {
+    text-align: right
+}
+
+.right {
+    text-align: left
+}
+
+body {
+    background-color: #DEDEDE
+}
+
+.error {
+    color: red;
+}
