@@ -1,12 +1,13 @@
 <?php
 
-include("auth/Authentifie.php");
+include("auth/EtreAuthentifie.php");
 
 if (empty($_POST['login'])) {
     include('adduser_form.php');
     exit();
 }
-
+if($idm->getRole() == "admin")
+{
 $error = "";
 
 foreach (['nom', 'prenom', 'login', 'mdp', 'mdp2'] as $name) {
@@ -49,19 +50,17 @@ $passwordFunction =
 $clearData['mdp'] = $passwordFunction($data['mdp']);
 
 try {
-    $SQL = "INSERT INTO users(nom,prenom,login,mdp) VALUES (:nom,:prenom,:login,:mdp)";
+    $SQL = "INSERT INTO users(uid,login,mdp) VALUES (DEFAULT,:login,:mdp)";
     $stmt = $db->prepare($SQL);
     $res = $stmt->execute($clearData);
     $id = $db->lastInsertId();
-    $auth->authenticate($clearData['login'], $data['mdp']);
-    // echo "Utilisateur $clearData[nom] : " . $id . " ajouté avec succès.";
-    redirect($pathFor['root']);
+    // $auth->authenticate($clearData['login'], $data['mdp']);
+    echo "Utilisateur $clearData[nom] : " . $id . " ajouté avec succès.";
+    // redirect($pathFor['root']);
 } catch (\PDOException $e) {
     http_response_code(500);
     echo "Erreur de serveur.";
     exit();
 }
 
-
-
-
+}

@@ -1,60 +1,3 @@
-<?php
-$title="Ajout d'un utilisateur"; 
-include("home.php");
-?>
-<p class="error"><?= $error??""?></p>
-<div class="center">
-    <h1>Inscription</h1>
-    <form method="post">
-        <!--legend>Inscription</legend-->
-        <table>
-            <tr>
-                <td><label for="inputNom" class="control-label">Nom</label></td>
-                <td><input type="text" name="nom" class="form-control" id="inputNom" placeholder="Nom" required
-                        value="<?= $data['nom']??""?>">
-                </td>
-            </tr>
-            <tr>
-                <td> <label for="inputPrenom" class="control-label">Prénom</label></td>
-                <td> <input type="text" name="prenom" class="form-control" id="inputPrenom" placeholder="Prénom"
-                        required aria-required="true" value="<?= $data['prenom']??""?>"></td>
-            </tr>
-            <tr>
-                <td><label for="inputLogin" class="control-label">Login</label></td>
-                <td><input type="text" name="login" class="form-control" id="inputLogin" placeholder="login" required
-                        value="<?= $data['login']??""?>"></td>
-            </tr>
-            <tr>
-                <td><label for="inputMDP" class="control-label">MDP</label></td>
-                <td><input type="password" name="mdp" class="form-control" id="inputMDP" placeholder="Mot de passe"
-                        required value=""></td>
-            </tr>
-            <tr>
-                <td><label for="inputMDP2" class="control-label">Répéter MDP</label></td>
-                <td><input type="password" name="mdp2" class="form-control" id="inputMDP"
-                        placeholder="Répéter le mot de passe" required value=""></td>
-            </tr>
-        </table>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
-        </div>
-    </form>
-</div>
-<?php
-
-<form action="action.php" method="post">
-Nom:
-<input type="text" name="nom">
-Prénom:
-<input type="text" name="prenom">
-<input type="submit" value="Envoyer">
-</form>
-
-include("footer.php");
- 
-
-
-
 <title>Ajouter un utilisateur </title>
 <?php
     include("home.php"); //connexion
@@ -68,15 +11,15 @@ include("footer.php");
     {
     echo "<P>La liste d'utilisateur est vide";
     }
-    else
+      else
     {   
 ?>
 
-<div class="horizontalement">
+<div class="verticalement">
     <fieldset>
-        <legend align="center">Ajouter un utilisateur</legend>
-        <div>
-            <table>
+        <legend align="center">Ajout d'un utilisateur</legend>
+        <div class="table-responsive">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Login</th>
@@ -85,15 +28,15 @@ include("footer.php");
                 <tbody>
 
                     <?php
-                        foreach($res as $row)
-                        {
-?>
-                    <tr>
+                            foreach($res as $row)
+                            {
+    ?>
+                    <tr class="active">
                         <td><?php echo htmlspecialchars($row['login']);?></td>
                     </tr>
                     <?php
-                        }
-?>
+                            }
+    ?>
                     <tr>
                         <td><a href="#" data-toggle="modal" data-target="#AjoutUser" class="btn btn-success"><span
                                     class="glyphicon glyphicon-plus"></span> Ajouter</a></td>
@@ -144,6 +87,6 @@ include("footer.php");
 </div>
 
 <?php
-    }
-    
+        }
+
 ?>
