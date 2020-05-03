@@ -22,6 +22,7 @@ if (empty($error)) {
     $data['password'] = $_POST['password'];
     if (!$auth->existIdentity($data['login'])) {
         $error =  "Utilisateur inexistant";
+        echo $error;
     }
 }
 
@@ -30,6 +31,7 @@ if (empty($error)) {
     $role = $auth->authenticate($data['login'], $data['password']);
     if (!$role) {
         $error = "Echec de l'authentification";
+        echo $error;
     }
 }
 

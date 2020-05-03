@@ -1,6 +1,6 @@
 <title>Ajout d'identifiants à une personne</title>
 <?php
-    include("home.php");
+    include("session.php");
     //requete
 	$SQL = "SELECT * FROM personnes ORDER BY pid";
 	$res = $db->query($SQL);

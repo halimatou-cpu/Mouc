@@ -1,6 +1,6 @@
 <title>Ajouter un utilisateur </title>
 <?php
-    include("home.php"); //connexion
+    include("session.php"); //connexion
     //requete
     $SQL = "SELECT * FROM users ORDER BY uid";
     $res = $db->query($SQL);
