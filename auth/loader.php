@@ -18,7 +18,7 @@ function redirect($url, $code=303){
     http_response_code($code);
 }
 
-$db = new PDO($dsn, $login, $mdp);
+$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $login, $mdp);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 

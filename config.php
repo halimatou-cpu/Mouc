@@ -4,15 +4,15 @@ $authTableData = [
     'table' => 'users',
     'idfield' => 'login',
     'cfield' => 'mdp',
-    'uidfield' => 'userid',
+    'uidfield' => 'uid',
     'rfield' => 'role',
 ];
 
 $pathFor = [
-    "login"  => "/login.php",
-    "logout" => "/logout.php",
-    "adduser" => "/adduser.php",
-    "root"   => "/home.php",
+    "login"  => "login.php",
+    "logout" => "logout.php",
+    "adduser" => "adduser.php",
+    "root"   => "session.php",
     "adduserform" =>"adduser_form.php",
 ];
 

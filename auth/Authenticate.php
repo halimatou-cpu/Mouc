@@ -34,7 +34,8 @@ class Authenticate
     public function authenticate($identity, $credential)
     {
         $role = $this->authenticator->authenticate($identity, $credential);
-
+        echo $identity;
+        echo $credential;
         if (!$role) {
             return false;
         }
@@ -47,8 +48,6 @@ class Authenticate
         }
         return true;
     }
-
-
     public function existIdentity($identity)
     {
         return $this->authenticator->existIdentity($identity);
