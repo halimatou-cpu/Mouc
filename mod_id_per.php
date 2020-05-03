@@ -1,7 +1,7 @@
 <title>Modification des identifiants d'une personne</title>
 <?php
 	include("session.php");
-		$SQL = "SELECT P.pid, P.nom, P.prenom, ID.valeur, ID.tid, IT.nom AS itnom FROM personnes P, identifications ID, itypes IT WHERE P.pid = ID.pid AND ID.tid = IT.tid";
+		$SQL = "SELECT P.pid, P.nom, P.prenom, ID.valeur, ID.tid, IT.nom AS itnom FROM personnes P, identifications ID, itypes IT WHERE ID.tid = IT.tid AND P.pid = ID.pid";
 		$res = $db->query($SQL);
 	if ($res->rowCount()==0)
 	{
@@ -53,7 +53,7 @@
 						</button>
 					</div>
 					<div class="modal-body" align="center">
-               			 Modifiez les identifications
+               			 Modifier les identifications
                     </div>
                     <div class="modal-footer" align="center">
                         <form method="post" action="traitement_mod_id_per.php">

@@ -27,7 +27,7 @@
 				}
 				else
 				{
-					echo "La modifcation a été effectué.";
+					echo "La modification a été effectué.";
 				}
 			}
 			catch (\PDOException $e) 
